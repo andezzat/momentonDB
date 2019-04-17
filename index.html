@@ -1,0 +1,28 @@
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MomentonDB</title>
+
+  <script type="module" src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@riophae/vue-treeselect@0.0.38/dist/vue-treeselect.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@riophae/vue-treeselect@0.0.38/dist/vue-treeselect.min.css">
+</head>
+
+<body>
+  <div id="app">
+    <h1>MomentonDB</h1>
+
+    <h2>Employee Directory</h2>
+    <treeselect v-model="selectedEmployeeId" :options="employeeHierarchy"></treeselect>
+
+    <div v-if="selectedEmployee" class="selected">
+      <h2>Selected Employee</h2>
+      <p v-for="[key, val] in Object.entries(selectedEmployee)">
+        <b>{{ key }}:</b> {{ val || 'N/A' }}
+      </p>
+    </div>
+  </div>
+</body>
+</html>
